@@ -1,4 +1,4 @@
-# BazzBasic Starter's Guide
+# BazzBasic Beginners's Guide
 
 ```text
 ######   #####  ####### ####### ######   #####  ####### ##  ###### 
@@ -21,9 +21,6 @@
 *This guide is licensed under [Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)](https://creativecommons.org/licenses/by-nd/4.0/).*
 
 *You are free to copy and share this guide in any format, provided you credit the original author. Translations into other languages are permitted. Modifications to the content are not permitted.*
-
-
-
  
 ## 1.0 Introducing BASIC
 
