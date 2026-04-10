@@ -93,6 +93,7 @@
   - [13.4 The Return Value Rule](#134-the-return-value-rule)
   - [13.5 Recursion](#135-recursion)
   - [13.6 GOSUB vs DEF FN](#136-gosub-vs-def-fn)
+  - [13.7 Passing Arrays to Functions](#137-passing-arrays-to-functions)
 - [14.0 User Input](#140-user-input)
   - [14.1 WAITKEY](#141-waitkey)
   - [14.2 INKEY](#142-inkey)
@@ -2063,6 +2064,52 @@ Now that you have both, a simple guide for choosing between them:
 **Use `DEF FN`** when you have a calculation or transformation that takes some inputs and produces a result. Functions are self-contained. They do not need to know anything about the program around them.
 
 A good function could be lifted out of one program and dropped into another without changing a single line. A good subroutine is usually woven into the specific program it belongs to.
+
+[↑ Back to top](#top)
+
+---
+ 
+### 13.7 Passing Arrays to Functions
+
+Functions only accept simple values as parameters - numbers and strings. You cannot pass an array directly into a `DEF FN`. If you try, BazzBasic will not know what to do with it.
+
+But there is a clean workaround that uses something you already know: JSON.
+
+The idea is simple. Before calling the function, convert your array to a JSON string with `ASJSON`. Pass that string as a parameter. Inside the function, convert it back to an array with `ASARRAY`. The function gets its own private copy of the data - completely independent from the original.
+
+```basic
+DEF FN SummarisePlayer$(data$)
+    DIM info$
+    LET count$ = ASARRAY(info$, data$)
+    RETURN info$("name") + " has score " + info$("score")
+END DEF
+
+[inits]
+    DIM player$
+    player$("name") = "Alice"
+    player$("score") = 9999
+    player$("city") = "New York"
+
+[main]
+    LET json$ = ASJSON(player$)
+    PRINT FN SummarisePlayer$(json$)
+END
+' Output: Alice has score 9999
+```
+
+Because the function gets a copy, anything it does to `info$` stays inside the function. The original `player$` array is untouched. This is the same by-value principle you already know from regular parameters - just applied to a whole array at once.
+
+Nested keys work exactly as you would expect:
+
+```basic
+DEF FN GetCity$(data$)
+    DIM arr$
+    ASARRAY arr$, data$
+    RETURN arr$("address,city")
+END DEF
+```
+
+This pattern is the accepted way to pass arrays to functions in BazzBasic.
 
 [↑ Back to top](#top)
 
