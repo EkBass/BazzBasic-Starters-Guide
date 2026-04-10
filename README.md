@@ -1,5 +1,7 @@
 # BazzBasic Beginner's Guide
 
+## Updated 10.04.2026 (ddmmyyyy)
+
 A beginner's guide to [BazzBasic](https://ekbass.github.io/BazzBasic/) — a modern BASIC interpreter for Windows.
 
 This guide covers everything you need to get started: variables, loops, conditions, 
@@ -13,3 +15,4 @@ The full [BazzBasic manual](https://ekbass.github.io/BazzBasic/manual/#/) covers
 
 **Author:** Kristian Virtanen (EkBass)  
 **License:** [CC BY-ND 4.0](https://creativecommons.org/licenses/by-nd/4.0/) — free to share with attribution, translations permitted, modifications are not permitted.
+
