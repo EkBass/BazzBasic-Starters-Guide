@@ -3068,6 +3068,28 @@ REMOVESHAPE BALL#
 [↑ Back to top](#top)
 
 ---
+
+#### 18.3.1 DRAWSTRING & LOADFONT
+
+```basic
+' Default font (Arial)
+DRAWSTRING "Hello!", 100, 200, RGB(255, 255, 255)
+
+' Load alternative font — becomes the new default
+LOADFONT "comic.ttf", 24
+DRAWSTRING "Hello!", 100, 200, RGB(255, 255, 255)
+
+' Reset to Arial
+LOADFONT
+```
+
+`DRAWSTRING x, y` positions the top-left of the text.  
+Requires SDL2_ttf.dll to be in the same directory as the interpreter.  
+Prefer this over PRINT in graphics mode, as PRINT can cause visible flickering on the graphics screen.
+
+[↑ Back to top](#top)
+
+---
  
 ### 18.4 SCREENLOCK
 
