@@ -36,14 +36,18 @@ This guide is updated at 11.04.2026 to match the features of BazzBasic version 1
   - [2.2 Install](#22-install)
   - [2.3 First Use](#23-first-use)
   - [2.4 Using the Built-in IDE](#24-using-the-built-in-ide)
-  - [2.5 First Program](#25-first-program)
+   - [2.4.1 Editor Features](#241-editor-features)
+  - [2.5 Using via CLI](#25-using-via-cli)
+  - [2.6 First Program](#25-first-program)
 - [3.1 Interaction](#31-interaction)
   - [3.2 INPUT & PRINT](#32-input--print)
   - [3.3 name$](#33-name)
 - [4.1 Data Types](#41-data-types)
   - [4.2 Variables](#42-variables)
+   - [4.2.1 Compound assigments](#421-compound-assigments)
   - [4.3 Constants](#43-constants)
   - [4.4 Arrays](#44-arrays)
+   - [4.4.1 Size of an Array](#441-size-of-an-array)
   - [4.5 Working with Values](#45-working-with-values)
   - [4.6 Declaring Without a Value](#46-declaring-without-a-value)
   - [4.7 Reading Multiple Values From an Array](#47-reading-multiple-values-from-an-array)
@@ -293,9 +297,36 @@ In the folder, you see *"bazzbasic.exe"*. Just double-click it and the BazzBasic
  
 ### 2.4 Using the Built-in IDE
 
-While the built-in IDE offers everything you need to start programming, there are also BazzBasic syntax files for *Geany, Notepad++, and VS Code*. See the subfolder *extras*.
+BazzBasic includes a simple integrated development environment (IDE).
 
-The IDE itself includes only a minimal set of features. They are common editor options and should not cause any problems.
+Run `BazzBasic.exe` without any arguments to open the IDE.
+
+#### 2.4.1 Editor Features
+
+- **Syntax highlighting** for BazzBasic keywords
+- **Line numbers** for easy navigation
+- **Multiple tabs** for working with several files
+
+### Keyboard Shortcuts & Menu Map
+
+| Menu | Shortcut | Action | CLI option |
+|----------|--------|--------|--------|
+| File | Ctrl+N | New file | BazzBasic.exe |
+| File | Ctrl+O | Open file | none |
+| File | Ctrl+S | Save file | none |
+| File | Ctrl+Shift+S | Save As | none |
+| File | Ctrl+W | Close tab | none |
+| File | Alt + F4 | Exit | none |
+| Edit | Ctrl+F | Find | none |
+| Edit | Ctrl+H | Replace | none |
+| Run | F5 | Run Program | BazzBasic.exe file.bas |
+| Run | none | Compile as Exe | BazzBasic.exe -exe file.bas |
+| Run | none | Compile as Library (.bb) | BazzBasic.exe -lib file.bas |
+| Help | none | About | BazzBasic.exe -v |
+| Help | none | Beginner's Guide[1] | BazzBasic.exe -guide |
+| Help | none | Check For Updates | BazzBasic.exe -checkupdates |
+
+**[1]** Opens [BazzBasic-Beginners-Guide/releases](https://github.com/EkBass/BazzBasic-Beginners-Guide/releases) in default www-browser.
 
 [↑ Back to top](#top)
 
