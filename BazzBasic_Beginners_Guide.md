@@ -129,6 +129,7 @@ This guide is updated at 11.04.2026 to match the features of BazzBasic version 1
   - [18.1 Opening a Screen](#181-opening-a-screen)
   - [18.2 Drawing](#182-drawing)
   - [18.3 Shapes and Images](#183-shapes-and-images)
+  	- [18.3.1 DRAWSTRING and LOADFONT](#1831-drawstring-and-loadfont)
   - [18.4 SCREENLOCK](#184-screenlock)
   - [18.5 The Game Loop](#185-the-game-loop)
   - [18.6 Sound](#186-sound)
@@ -3069,7 +3070,7 @@ REMOVESHAPE BALL#
 
 ---
 
-#### 18.3.1 DRAWSTRING & LOADFONT
+#### 18.3.1 DRAWSTRING and LOADFONT
 
 Render text directly to the SDL2 graphics surface. Requires `SDL2_ttf.dll` in the same directory as the interpreter.
 
