@@ -15,12 +15,15 @@
 *This beginner's guide is written by Kristian Virtanen aka "[EkBass](https://github.com/EkBass)" with translation help from [Claude.ai](https://claude.ai/new) for [BazzBasic](https://ekbass.github.io/BazzBasic/).*
 
 **Date:**  
-*02.04.2026 (dd.mm.yyyy)*
+*11.04.2026 (dd.mm.yyyy)*
 
 **License:**  
 *This guide is licensed under [Creative Commons Attribution-NoDerivatives 4.0 International (CC BY-ND 4.0)](https://creativecommons.org/licenses/by-nd/4.0/).*
 
 *You are free to copy and share this guide in any format, provided you credit the original author. Translations into other languages are permitted. Modifications to the content are not permitted.*
+
+**Update:**
+This guide is updated at 11.04.2026 to match the features of BazzBasic version 1.3
 
 <a name="top"></a>
 
@@ -296,8 +299,55 @@ The IDE itself includes only a minimal set of features. They are common editor o
 [↑ Back to top](#top)
 
 ---
- 
-### 2.5 First Program
+
+### 2.5 Using via CLI
+
+Via the CLI, you have access to most of the same features as in the IDE.
+
+**Launch BazzBasic IDE**
+```
+BazzBasic.exe
+```
+
+**Launch your .bas program with BazzBasic**
+```
+BazzBasic.exe yourFile.bas
+```
+
+**Check version of your BazzBasic**
+```
+BazzBasic.exe -v
+```
+
+**Check for updates**
+```
+BazzBasic.exe -checkupdates
+```
+
+**Compile your .bas file as executable**
+```
+BazzBasic.exe -exe yourFile.bas
+```
+
+**Compile your .bas file as library (.bb)**
+```
+BazzBasic.exe -lib yourFile.bas
+```
+
+**Get a link to the BazzBasic Starter's Guide**
+```
+BazzBasic.exe -guide
+```
+or
+```
+BazzBasic.exe -help
+```
+
+[↑ Back to top](#top)
+
+---
+
+### 2.6 First Program
 
 Type your first line of BazzBasic code:
 
@@ -420,6 +470,18 @@ thing$ = "forty-two"
 
 That said, mixing types in the same variable tends to confuse *you* more than the interpreter, so keep things consistent. Your future self will thank you.
 
+#### 4.2.1 Compound assigments
+
+**Compound assignment operators** (variables only — **not** allowed with `#` constants):
+
+```basic
+x$ += 5     ' add 5
+x$ -= 3     ' subtract 3
+x$ *= 2     ' multiply by 2
+x$ /= 4     ' divide by 4
+s$ += " World"  ' string concatenation
+```
+
 [↑ Back to top](#top)
 
 ---
@@ -448,7 +510,7 @@ Second, **maintenance**. If your screen width appears in twenty places and you n
 BazzBasic also comes with several built-in constants ready to use:
 
 ```basic
-PRINT PI          ' 3.14159...
+PRINT PI#         ' 3.14159...
 PRINT KEY_ESC#    ' the Escape key value
 PRINT TRUE        ' 1
 PRINT FALSE       ' 0
@@ -513,6 +575,25 @@ DIM board$
 	board$(1, 0) = "O"
 ```
 
+[↑ Back to top](#top)
+
+---
+
+#### 4.4.1 Size of an Array
+
+```basic
+[inits]
+	DIM arr$
+	arr$(1) = "foo" : arr$(1, "fox") = "bar"
+	arr$(2) = "bar" : arr$(2, "fox") = "boo"
+
+[main]
+	PRINT LEN(arr$()) ' 4: size of whole array
+	PRINT ROWCOUNT(arr$()) ' 2: size of 1st dimension
+END
+```
+
+When looping through an array with FOR, for example, LEN returns the total size of the whole array, while ROWCOUNT returns the size of the first dimension.
 
 [↑ Back to top](#top)
 
@@ -614,6 +695,23 @@ It's worth pausing for a second and thinking about which of the three to reach f
 - A **collection of related things**? array with `DIM`
 
 Getting this right won't make your program run faster, but it will make it easier to read, easier to fix, and more enjoyable to work on. And that matters more than you might think.
+
+[↑ Back to top](#top)
+
+---
+
+### 4.9 Command Line Arguments
+
+BazzBasic supports command line arguments in a style familiar from classic BASIC.
+
+```basic
+' bazzbasic.exe myprog.bas arg1 arg2
+PRINT ARGCOUNT         ' number of args (2 in this example)
+PRINT ARGS(0)          ' first arg  → "arg1"
+PRINT ARGS(1)          ' second arg → "arg2"
+```
+
+ARGS(n) is 0-based — ARGS(0) is the first argument. ARGCOUNT returns the total number of arguments passed. Neither includes the interpreter or script name.
 
 [↑ Back to top](#top)
 
@@ -3130,7 +3228,7 @@ The accuracy is essentially identical to standard `SIN`/`COS`. The speed differe
 `FastRad` converts degrees to radians and does not require `FastTrig` to be enabled:
 
 ```basic
-LET radians$ = FastRad(180)    ' = PI
+LET radians$ = FastRad(180)    ' = PI#
 ```
 
 Angles are automatically normalised - `FastSin(-90)` and `FastSin(450)` both work correctly, wrapping to the equivalent value in the 0–359 range.
