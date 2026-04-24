@@ -1,5 +1,8 @@
 # BazzBasic Beginner's Guide
 
+## PDF version
+Get it: https://github.com/EkBass/BazzBasic-Beginners-Guide/releases/download/BazzBasic_guide_11042026/BazzBasic_Beginners_Guide.pdf
+
 ## Updated 10.04.2026 (ddmmyyyy)
 
 A beginner's guide to [BazzBasic](https://ekbass.github.io/BazzBasic/) — a modern BASIC interpreter for Windows.
